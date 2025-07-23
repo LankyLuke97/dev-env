@@ -1,0 +1,4 @@
+git config --global init.defaultbranch "main"
+git config --global user.name "LankyLuke97"
+git config --global user.email "lukehowden@rocketmail.com"
+git config --global core.editor "vim"
