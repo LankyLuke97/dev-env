@@ -1,4 +1,16 @@
+gcm_version=2.6.1
+
+if git-credential-manager --version | grep -qv "$gcm_version"; then
+	git-credential-manager unconfigure
+	sudo dpkg -r gcm
+	curl -sLO https://github.com/git-ecosystem/git-credential-manager/releases/download/v$gcm_version/gcm-linux_amd64.$gcm_version.deb
+	sudo dpkg -i gcm-linux_amd64.$gcm_version.deb
+	git-credential-manager configure
+	rm gcm-linux_amd64.$gcm_version.deb
+fi
+
 git config --global init.defaultbranch "main"
 git config --global user.name "LankyLuke97"
 git config --global user.email "lukehowden@rocketmail.com"
-git config --global core.editor "vim"
+git config --global core.editor "nvim"
+git config --global credential.credentialStore gpg
