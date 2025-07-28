@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Command line fuzzy find
+git clone --depth 1 https://github.com/junnegunn/fzf.git $HOME/personal/fzf
+$HOME/personal/fzf/install
+eval "$(fzf --bash)"
