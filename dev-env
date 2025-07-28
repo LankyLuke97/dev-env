@@ -38,7 +38,7 @@ copy_dir() {
 	dirs=$(find . -mindepth 1 -maxdepth 1 -type d)
 	for dir in $dirs; do
 		execute rm -rf $to/$dir
-		execute cp $dir $to/$dir
+		execute cp -r $dir $to/$dir
 	done
 	popd > /dev/null
 }
@@ -52,4 +52,5 @@ copy_file() {
 	execute cp $from $to/$name
 }
 
-copy_dir .config $HOME/.config
+copy_dir .config $XDG_CONFIG_HOME
+copy_dir .local $HOME/.local
